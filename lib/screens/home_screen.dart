@@ -33,6 +33,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.black38,
                     colorBlendMode: BlendMode.darken,
                   ),
+                  Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text('Stay Home, Stay Safe!'),
+                  ),
                   navList[_bottomNavIndex],
                 ],
               ),
@@ -41,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: navList[_bottomNavIndex],
             ),
 
-      /* ==================================== Bottom navigation bar =================================*/
+      /* ================================= Bottom navigation bar =================================*/
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         elevation: 10.0,
