@@ -23,11 +23,23 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          child: navList[_bottomNavIndex],
-        ),
-      ),
+      body: _bottomNavIndex == 0
+          ? SafeArea(
+              child: Column(
+                children: [
+                  Image(
+                    image: AssetImage('images/covid.jpg'),
+                    fit: BoxFit.cover,
+                    color: Colors.black38,
+                    colorBlendMode: BlendMode.darken,
+                  ),
+                  navList[_bottomNavIndex],
+                ],
+              ),
+            )
+          : SafeArea(
+              child: navList[_bottomNavIndex],
+            ),
 
       /* ==================================== Bottom navigation bar =================================*/
       bottomNavigationBar: BottomNavigationBar(
