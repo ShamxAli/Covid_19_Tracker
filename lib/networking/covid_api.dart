@@ -13,4 +13,7 @@ class CovidAPI {
       throw Exception('Failed to load post');
     }
   }
+
+  /* ================================= Load Country Data =================================*/
+
 }
