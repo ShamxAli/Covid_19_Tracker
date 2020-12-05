@@ -1,5 +1,6 @@
 import 'package:covid_19_tracker/models/global.dart';
 import 'package:covid_19_tracker/networking/covid_api.dart';
+import 'package:covid_19_tracker/widgets/custom_animator.dart';
 import 'package:covid_19_tracker/widgets/custom_loader.dart';
 import 'package:covid_19_tracker/widgets/global_card_tile.dart';
 import 'package:flutter/cupertino.dart';
@@ -26,30 +27,36 @@ class GlobalScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  GlobalCardTile(
-                    tileColor: Colors.blue,
-                    caseType: 'Total Cases',
-                    numOfCases: formatter.format(numOfCases),
-                    assetImage: 'images/covidBlue.png',
+                  WidgetAnimator(
+                    GlobalCardTile(
+                      tileColor: Colors.blue,
+                      caseType: 'Total Cases',
+                      numOfCases: formatter.format(numOfCases),
+                      assetImage: 'images/covidBlue.png',
+                    ),
                   ),
-                  GlobalCardTile(
-                    tileColor: Colors.red.withAlpha(200),
-                    caseType: 'Total Deaths',
-                    numOfCases: formatter.format(numOfDeaths),
-                    assetImage: 'images/death.png',
+                  WidgetAnimator(
+                    GlobalCardTile(
+                      tileColor: Colors.red.withAlpha(200),
+                      caseType: 'Total Deaths',
+                      numOfCases: formatter.format(numOfDeaths),
+                      assetImage: 'images/death.png',
+                    ),
                   ),
-                  GlobalCardTile(
-                    tileColor: Colors.green.withAlpha(200),
-                    caseType: 'Total Recoveries',
-                    numOfCases: formatter.format(numOfRecoveredCases),
-                    assetImage: 'images/recover.png',
+                  WidgetAnimator(
+                    GlobalCardTile(
+                      tileColor: Colors.green.withAlpha(200),
+                      caseType: 'Total Recoveries',
+                      numOfCases: formatter.format(numOfRecoveredCases),
+                      assetImage: 'images/recover.png',
+                    ),
                   ),
                 ],
               ),
             ),
           );
         } else if (snapshot.hasError) {
-          print('error');
+          print('error is ${snapshot.error}');
         }
         return Container(
           width: width,
