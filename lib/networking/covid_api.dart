@@ -7,9 +7,9 @@ import 'package:http/http.dart' as http;
 class CovidAPI {
   /* ================================= Load Global Data =================================*/
   Future<Global> getGlobalData() async {
-    String url = "https://corona.lmao.ninja/v3/covid-19/all";
-    http.Response response = await http.get(url);
+    String url = "${BASE_URL + GLOBAL}";
 
+    http.Response response = await http.get(url);
     if (response.statusCode == 200) {
       var jsonResponse = await jsonDecode(response.body);
       return Global.fromJson(jsonResponse);
@@ -18,10 +18,10 @@ class CovidAPI {
     }
   }
 
-  /* ================================= Load Country Data =================================*/
+  /* ================================= Load Countries Data =================================*/
 
   Future<CountryList> getCountriesData() async {
-    String url = "https://corona.lmao.ninja/v3/covid-19/countries";
+    String url = '${BASE_URL + COUNTRY}';
     http.Response response = await http.get(url);
     if (response.statusCode == 200) {
       var jsonResponse = jsonDecode(response.body);

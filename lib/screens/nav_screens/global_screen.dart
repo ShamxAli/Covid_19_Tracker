@@ -18,12 +18,12 @@ class GlobalScreen extends StatelessWidget {
       future: CovidAPI().getGlobalData(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          int numOfCases = snapshot.data.cases;
-          int numOfRecoveredCases = snapshot.data.recovered;
-          int numOfDeaths = snapshot.data.deaths;
+          int caseCount = snapshot.data.cases;
+          int deathCount = snapshot.data.deaths;
+          int recoveredCount = snapshot.data.recovered;
+
           return Container(
-            margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 5.0),
-            child: Expanded(
+              margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 5.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -31,7 +31,7 @@ class GlobalScreen extends StatelessWidget {
                     GlobalCardTile(
                       tileColor: Colors.blue,
                       caseType: 'Total Cases',
-                      numOfCases: formatter.format(numOfCases),
+                      numOfCases: formatter.format(caseCount),
                       assetImage: 'images/covidBlue.png',
                     ),
                   ),
@@ -39,7 +39,7 @@ class GlobalScreen extends StatelessWidget {
                     GlobalCardTile(
                       tileColor: Colors.red.withAlpha(200),
                       caseType: 'Total Deaths',
-                      numOfCases: formatter.format(numOfDeaths),
+                      numOfCases: formatter.format(deathCount),
                       assetImage: 'images/death.png',
                     ),
                   ),
@@ -47,16 +47,17 @@ class GlobalScreen extends StatelessWidget {
                     GlobalCardTile(
                       tileColor: Colors.green.withAlpha(200),
                       caseType: 'Total Recoveries',
-                      numOfCases: formatter.format(numOfRecoveredCases),
+                      numOfCases: formatter.format(recoveredCount),
                       assetImage: 'images/recover.png',
                     ),
                   ),
                 ],
-              ),
-            )
-          );
+              ));
         } else if (snapshot.hasError) {
           print('error is ${snapshot.error}');
+          return Center(
+            child: Text('Error while json parsing'),
+          );
         }
         return Container(
           width: width,
