@@ -53,7 +53,7 @@ class GlobalScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
+            )
           );
         } else if (snapshot.hasError) {
           print('error is ${snapshot.error}');
