@@ -21,14 +21,13 @@ dependencies:
   progress_indicators: ^0.1.5
   intl: ^0.16.1
   flutter_svg: ^0.19.1
-
-
-
-
+  json_annotation: ^3.0.0
 
 
 
 dev_dependencies:
+  json_serializable: ^3.4.0
+  build_runner: ^1.10.1
   flutter_test:
     sdk: flutter
 

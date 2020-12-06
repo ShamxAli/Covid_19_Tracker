@@ -1,7 +1,5 @@
-
 import 'package:covid_19_tracker/screens/details/countries_details.dart';
 import 'package:flutter/material.dart';
-
 
 class DataSearch extends SearchDelegate<String> {
   var snapshot;
@@ -49,19 +47,19 @@ class DataSearch extends SearchDelegate<String> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => CountryDetails(
-                        countryName: snapshot.data.countries[index].country,
-                        totalCases: snapshot.data.countries[index].cases,
-                        totalRecovered:
-                        snapshot.data.countries[index].recovered,
-                        totalDeaths: snapshot.data.countries[index].deaths,
-                        todayCases:
-                        snapshot.data.countries[index].todayCases,
-                        todayDeaths:
-                        snapshot.data.countries[index].todayDeaths,
-                        activeCases: snapshot.data.countries[index].active,
-                        cCases: snapshot.data.countries[index].critical,
-                        totalTests: snapshot.data.countries[index].tests,
-                      )));
+                            countryName: snapshot.data.countries[index].country,
+                            totalCases: snapshot.data.countries[index].cases,
+                            totalRecovered:
+                                snapshot.data.countries[index].recovered,
+                            totalDeaths: snapshot.data.countries[index].deaths,
+                            todayCases:
+                                snapshot.data.countries[index].todayCases,
+                            todayDeaths:
+                                snapshot.data.countries[index].todayDeaths,
+                            activeCases: snapshot.data.countries[index].active,
+                            cCases: snapshot.data.countries[index].critical,
+                            totalTests: snapshot.data.countries[index].tests,
+                          )));
             },
           );
         });
@@ -72,8 +70,9 @@ class DataSearch extends SearchDelegate<String> {
     final suggestionList = query.isEmpty
         ? recentList
         : countryList
-        .where((element) => element.toLowerCase().startsWith(query))
-        .toList();
+            .where((element) =>
+                element.toLowerCase().startsWith(query.toLowerCase()))
+            .toList();
 
     return ListView.builder(
         itemCount: suggestionList.length,
@@ -86,19 +85,19 @@ class DataSearch extends SearchDelegate<String> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => CountryDetails(
-                        countryName: snapshot.data.countries[index].country,
-                        totalCases: snapshot.data.countries[index].cases,
-                        totalRecovered:
-                        snapshot.data.countries[index].recovered,
-                        totalDeaths: snapshot.data.countries[index].deaths,
-                        todayCases:
-                        snapshot.data.countries[index].todayCases,
-                        todayDeaths:
-                        snapshot.data.countries[index].todayDeaths,
-                        activeCases: snapshot.data.countries[index].active,
-                        cCases: snapshot.data.countries[index].critical,
-                        totalTests: snapshot.data.countries[index].tests,
-                      )));
+                            countryName: snapshot.data.countries[index].country,
+                            totalCases: snapshot.data.countries[index].cases,
+                            totalRecovered:
+                                snapshot.data.countries[index].recovered,
+                            totalDeaths: snapshot.data.countries[index].deaths,
+                            todayCases:
+                                snapshot.data.countries[index].todayCases,
+                            todayDeaths:
+                                snapshot.data.countries[index].todayDeaths,
+                            activeCases: snapshot.data.countries[index].active,
+                            cCases: snapshot.data.countries[index].critical,
+                            totalTests: snapshot.data.countries[index].tests,
+                          )));
             },
           );
         });

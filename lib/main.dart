@@ -15,14 +15,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SplashScreen(
         image: Image.asset(
-          'images/loader.png',
-          width: 150.0,
-          height: 150.0,
-          color: Colors.blue,
+          'images/three.png',
+          width: 200.0,
+          height: 200.0,
         ),
         photoSize: 120.0,
         seconds: 4,
-        loaderColor: Colors.blueGrey,
+        loaderColor: Colors.blueAccent,
         loadingText: Text('Stay Home, Stay Safe!'),
         navigateAfterSeconds: HomeScreen(),
       ),
